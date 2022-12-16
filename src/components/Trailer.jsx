@@ -13,10 +13,7 @@ const Trailer = ({ item }) => {
 	//const trailer = item.results?.find((item) => {
 	//return item.name === "Official Trailer";
 	//});
-	const trailer =
-		item.results?.find((item) => {
-			return item.name === "Official Trailer";
-		}) || item.results[0];
+	const trailer = item.results[0];
 
 	return (
 		<div>
