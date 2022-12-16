@@ -26,6 +26,12 @@ const Trailer = ({ item }) => {
 		return item.name === "Official Trailer";
 	});
 
+	const trailer2 = item.results?.find((item) => {
+		if (item.type === "Trailer") {
+			return item;
+		}
+	});
+
 	return (
 		<div>
 			{console.log("받아온 item이 모야?? ", item)}
@@ -43,7 +49,7 @@ const Trailer = ({ item }) => {
 				<Modal.Header closeButton></Modal.Header>
 				<Modal.Body>
 					<YouTube
-						videoId={official?.key || item.results[0].key}
+						videoId={trailer?.key == undefined ? trailer2?.key : trailer?.key}
 						opts={opts}
 						onReady={_onReady}
 					/>
