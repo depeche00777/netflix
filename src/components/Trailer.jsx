@@ -20,18 +20,6 @@ const Trailer = ({ item }) => {
 		event.target.pauseVideo();
 	};
 
-	//{item.results[0].key} -  무조건 첫번째 유투브를 보여줌
-	//"Official Trailer"가 있을때
-	const official = item.results?.find((item) => {
-		return item.name === "Official Trailer";
-	});
-
-	const trailer2 = item.results?.find((item) => {
-		if (item.type === "Trailer") {
-			return item;
-		}
-	});
-
 	return (
 		<div>
 			{console.log("받아온 item이 모야?? ", item)}
@@ -48,11 +36,7 @@ const Trailer = ({ item }) => {
 			>
 				<Modal.Header closeButton></Modal.Header>
 				<Modal.Body>
-					<YouTube
-						videoId={trailer?.key == undefined ? trailer2?.key : trailer?.key}
-						opts={opts}
-						onReady={_onReady}
-					/>
+					<YouTube opts={opts} onReady={_onReady} />
 				</Modal.Body>
 			</Modal>
 		</div>
